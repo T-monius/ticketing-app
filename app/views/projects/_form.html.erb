@@ -1,0 +1,11 @@
+<%= form_for @project do |f| %>
+  <dl>
+    <dt><%= f.label :name %></dt>
+    <dd><%= f.text_field :name %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :description %></dt>
+    <dd><%= f.text_field :description %></dd>
+  </dl>
+  <%= f.submit(@project.new_record? ? 'Create Project' : 'Update Project' )%>
+<% end %>

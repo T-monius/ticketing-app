@@ -1,0 +1,21 @@
+body {
+  font: 16px 'Arial', sans-serif;
+  margin: 5px 20px;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 28px;
+}
+
+header ul {
+  display: inline-block;
+}
+
+header li {
+  display: inline-block;
+}
+
+dl {
+  margin: 10px 0;
+}
