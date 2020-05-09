@@ -13,8 +13,8 @@
           <dd><%= project.description %></dd>
         </dl>
       </td>
-      <td>0</td>
-      <td>0</td>
+      <td><%= project.tickets.count {|ticket| ticket.status == 'open'} || 0 %></td>
+      <td><%= project.tickets.count %></td>
     </tr>
     <% end %>
   </tbody>
