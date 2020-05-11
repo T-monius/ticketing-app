@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Assignee</th>
+      <th>Status</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= nil %></td>
+        <td><%= ticket.status %></td>
+        <td>Not Yet</td>
+        <td>
+          <%= link_to 'Edit', edit_ticket_path(ticket) %>
+          <%= link_to 'Destroy', "/projects/#{ticket.project_id}/tickets/#{ticket.id}", method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
