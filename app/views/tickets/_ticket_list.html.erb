@@ -10,13 +10,13 @@
   <tbody>
     <% tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.name %></td>
+        <td><%= link_to ticket.name, ticket_path(ticket) %></td>
         <td><%= nil %></td>
         <td><%= ticket.status %></td>
         <td>Not Yet</td>
         <td>
           <%= link_to 'Edit', edit_ticket_path(ticket) %>
-          <%= link_to 'Destroy', "/projects/#{ticket.project_id}/tickets/#{ticket.id}", method: :delete %>
+          <%= link_to 'Destroy', ticket_path(ticket), method: :delete %>
         </td>
       </tr>
     <% end %>
