@@ -1,0 +1,7 @@
+<%= form_for @tag do |tag_form| %>
+  <dl>
+    <dt><%= tag_form.label :name %></dt>
+    <dd><%= tag_form.text_field :name %></dd>
+  </dl>
+  <%= tag_form.submit(@tag.new_record? ? 'Create Tag' : 'Update Tag') %>
+<% end %>
