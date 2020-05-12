@@ -11,5 +11,9 @@
     <dt><%= f.label :status %></dt>
     <dd><%= f.text_field :status %></dd>
   </dl>
+  <dl>
+    <dt><%= f.label :tags %></dt>
+    <dd><%= f.collection_select(:tag_ids, Tag.all, :id, :name, {}, { multiple: true }) %></dd>
+  </dl>
   <%= f.submit 'Update ticket' %>
 <% end %>

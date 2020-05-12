@@ -1,5 +1,6 @@
 <h2><%= @ticket.name %>
 <p><%= @ticket.body %></p>
+<p>Tags&colon; <%= @ticket.tags.map { |tag| tag.name }.join(', ') %></p>
 <%= link_to 'Edit', edit_ticket_path(@ticket) %>
 <table>
   <thead>
