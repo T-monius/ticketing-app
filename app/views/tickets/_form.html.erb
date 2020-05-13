@@ -11,7 +11,11 @@
   </dl>
   <dl>
     <dt><%= f.label :status %></dt>
-    <dd><%= f.text_field :status %></dd>
+    <dd><%= select_tag(:status, raw("<option value='new'>New</option><option value='in_progress'>In progress</option><option value='fixed'>Fixed</option><option value='blocked'>Blocked</option>")) %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :assignee %></dt>
+    <dd><%= collection_select(:assignee_id, :user_id, User.all, :id, :name) %></dd>
   </dl>
   <dl>
     <dt><%= f.label :tags %></dt>

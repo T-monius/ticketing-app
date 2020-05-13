@@ -13,9 +13,10 @@ class TicketsController < ApplicationController
   def show; end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.update(creator: current_user.id)
+    @ticket = Ticket.new(ticket_params.merge(creator_id: current_user.id))
+    @ticket.update(assignee_id: params[:assignee_id][:user_id])
 
+    binding.pry
     if @ticket.save
       flash[:success] = 'You have successfully created the ticket.'
       redirect_to ticket_path(@ticket)
@@ -52,7 +53,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:name, :body, :status, :project_id, tag_ids: [])
+    params.require(:ticket).permit(:name, :body, :status, :project_id, :assignee_id, tag_ids: [])
   end
 
   def set_ticket

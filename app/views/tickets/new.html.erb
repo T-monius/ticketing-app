@@ -1,6 +1,7 @@
 <h2>New Ticket</h2>
 <h3>Project</h3>
 <%= form_for @ticket do |f| %>
+  <%= render 'shared/errors', obj: @ticket %>
   <dl>
     <dt><%= f.label :project %></dt>
     <dd><%= f.collection_select(:project_id, Project.all, :id, :name) %></dd>
@@ -14,8 +15,12 @@
     <dd><%= f.text_area :body, rows: 5 %></dd>
   </dl>
   <dl>
-    <dt><%= f.label :status %></dt>
+    <dt><%= f.label :status %>&lpar;new, fixed, in_progress, blocked&rpar;</dt>
     <dd><%= f.text_field :status %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :assignee %></dt>
+    <dd><%= collection_select(:assignee_id, :user_id, User.all, :id, :name) %></dd>
   </dl>
   <dl>
     <dt><%= f.label :tags %></dt>
