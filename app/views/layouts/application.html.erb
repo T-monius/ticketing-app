@@ -15,8 +15,17 @@
       <li><%= link_to 'Tickets', tickets_path %></li>
       <li><%= link_to 'Tags', tags_path %></li>
     </ul>
-    <%= link_to 'Login', '/' %>
-    <%= link_to 'Register', '/register' %>
+    <% unless current_user %>
+    <ul>
+      <li><%= link_to 'Login', '/login' %></li>
+      <li><%= link_to 'Register', '/register' %></li>
+    </ul>
+    <% else %>
+    <ul>
+      <li>Signed in as <%= current_user.name %></li>
+      <li><%= link_to 'Logout', '/logout' %></li>
+    </ul>
+    <% end %>
   </header>
   <body>
     <%= yield %>
