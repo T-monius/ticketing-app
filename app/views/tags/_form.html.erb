@@ -1,3 +1,5 @@
+<%= render 'shared/errors', obj: @tag %>
+
 <%= form_for @tag do |tag_form| %>
   <dl>
     <dt><%= tag_form.label :name %></dt>
