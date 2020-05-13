@@ -1,0 +1,35 @@
+<%= form_for @user do |user_form| %>
+  <dl>
+    <dt>
+      <%= user_form.label :name %>
+    </dt>
+    <dd>
+      <%= user_form.text_field :name %>
+    </dd>
+  </dl>
+  <dl>
+      <dt>
+        <%= user_form.label :email %>
+      </dt>
+      <dd>
+        <%= user_form.text_field :email %>
+      </dd>
+    </dl>
+  <dl>
+      <dt>
+        <%= user_form.label :password %>
+      </dt>
+      <dd>
+        <%= user_form.password_field :password %>
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <%= user_form.label :password_confirmation %>
+      </dt>
+      <dd>
+        <%= user_form.password_field :password_confirmation %>
+      </dd>
+    </dl>
+  <%= user_form.submit('Register User') %>
+<% end %>
