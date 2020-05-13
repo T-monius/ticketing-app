@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   def show; end
 
   def new
+    require_user
     @project = Project.new
   end
 

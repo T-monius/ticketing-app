@@ -16,6 +16,14 @@ header li {
   display: inline-block;
 }
 
+.success {
+  color: #008000;
+}
+
+.error {
+  color: #FF0000;
+}
+
 dl {
   margin: 10px 0;
 }
