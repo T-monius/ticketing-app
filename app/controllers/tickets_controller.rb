@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
   end
 
   def new
+    require_user
     @ticket = Ticket.new
   end
 
@@ -23,7 +24,9 @@ class TicketsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    require_user
+  end
 
   def update
     if @ticket.update(ticket_params)
@@ -36,7 +39,11 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket.destroy
+    if logged_in?
+      @ticket.destroy
+    else
+      flash[:error] = 'Must be logged in to do that.'
+    end
 
     redirect_to tickets_path
   end

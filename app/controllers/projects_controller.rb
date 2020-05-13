@@ -23,7 +23,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    require_user
+  end
 
   def update
     if @project.update(project_params)
@@ -35,6 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    require_user
     @project.destroy
 
     redirect_to projects_path

@@ -6,6 +6,7 @@ class TagsController < ApplicationController
   end
 
   def new
+    require_user
     @tag = Tag.new
   end
 
@@ -35,7 +36,11 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag.destroy
+    if logged_in?
+      @tag.destroy
+    else
+      flash[:error] = 'Must be logged in to do that.'
+    end
 
     redirect_to tags_path
   end
