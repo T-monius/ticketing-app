@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:edit, :update, :destroy]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.all.order(:name)
 
     flash[:notice] = 'No tags' if @tags.empty?
   end
