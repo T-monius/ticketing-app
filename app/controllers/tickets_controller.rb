@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
     if params[:tag].present?
       @tickets = @tickets.joins(:tags).where("tags.id": params[:tag])
     end
+    flash[:notice] = 'No open tickets' if @tickets.empty?
   end
 
   def new

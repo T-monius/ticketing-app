@@ -3,6 +3,8 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all
+
+    flash[:notice] = 'No tags' if @tags.empty?
   end
 
   def new

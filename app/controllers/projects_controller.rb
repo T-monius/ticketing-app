@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+
+    flash[:notice] = 'No current projects' if @project.empty?
   end
 
   def show; end
