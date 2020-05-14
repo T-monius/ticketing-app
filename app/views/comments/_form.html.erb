@@ -1,0 +1,9 @@
+<%= render 'shared/errors', obj: @comment %>
+<%= form_for [@ticket, @comment] do |ticket_comment_form| %>
+  <dl>
+    <dt><%= ticket_comment_form.label :body, 'Add a comment' %></dt>
+    <dd><%= ticket_comment_form.text_area :body %></dd>
+  </dl>
+  <%= ticket_comment_form.submit(@comment.new_record? ? 'Create Comment' : 'Update Comment') %>
+  <%= link_to 'Cancel', ticket_path(@ticket) %>
+<% end %>

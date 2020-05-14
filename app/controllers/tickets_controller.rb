@@ -10,13 +10,14 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+  end
 
   def create
     @ticket = Ticket.new(ticket_params.merge(creator_id: current_user.id))
     @ticket.update(assignee_id: params[:assignee_id][:user_id])
 
-    binding.pry
     if @ticket.save
       flash[:success] = 'You have successfully created the ticket.'
       redirect_to ticket_path(@ticket)
