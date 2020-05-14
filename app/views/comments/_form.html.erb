@@ -4,6 +4,7 @@
     <dt><%= ticket_comment_form.label :body, 'Add a comment' %></dt>
     <dd><%= ticket_comment_form.text_area :body %></dd>
   </dl>
+  <%= select_tag(:status, raw("<option value=''>Do not change</option><option value='new'>New</option><option value='in_progress'>In progress</option><option value='fixed'>Fixed</option><option value='blocked'>Blocked</option>")) %>
   <%= ticket_comment_form.submit(@comment.new_record? ? 'Create Comment' : 'Update Comment') %>
   <%= link_to 'Cancel', ticket_path(@ticket) %>
 <% end %>
