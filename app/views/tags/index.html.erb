@@ -10,7 +10,7 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.name %></td>
-        <td><%= tag.tickets.map { |ticket| ticket.name }.join(', ') %></td>
+        <td><%= link_to tag.tickets.size, tickets_path(tag: tag.id) %></td>
         <td>
           <%= link_to 'Destroy', tag_path(tag), method: :delete %>
         </td>
