@@ -1,2 +1,14 @@
+<h2>Tickets</h2>
+<%= form_tag tickets_path, method: :get do %>
+  <p>
+    Show tickets from 
+    <%= select_tag :project, options_from_collection_for_select(Project.all, :id, :name, params[:project]), include_blank: "All Projects"  %> 
+    with status 
+    <%= select_tag(:status, raw("<option value=''>Any Sttus</option><option value='new'>New</option><option value='in_progress'>In progress</option><option value='fixed'>Fixed</option><option value='blocked'>Blocked</option>")) %>
+  </p>
+  <%= button_tag 'Update', name: nil %>
+  <%= link_to 'Clear filters', tickets_path %>
+<% end %>
+
 <%= render partial: 'ticket_list', locals: { tickets: @tickets } %>
 <%= link_to 'New Ticket', new_ticket_path %>
